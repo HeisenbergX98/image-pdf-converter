@@ -1,0 +1,18 @@
+@use "variables" as *;
+.app-container {
+  background-color: rgb(21, 21, 21);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 80vw;
+  height: fit-content;
+  padding: $padding-main;
+  border-radius: $border-radius-20;
+  gap: 1em;
+
+  .step-two-three-wrapper {
+    display: flex;
+    width: 100%;
+    gap: 2em;
+  }
+}

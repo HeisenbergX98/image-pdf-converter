@@ -1,0 +1,26 @@
+@use "variables" as *;
+
+.download-container {
+  background-color: rgba(59, 59, 59, 0.192);
+  display: flex;
+  padding: $padding-main;
+  width: 30%;
+  height: 27%;
+  flex-direction: column;
+  align-items: center;
+  align-self: flex-start;
+  border-radius: $border-radius-20;
+  gap: 1em;
+
+  .download-button {
+    width: 100%;
+    button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      color: rgb(231, 231, 231);
+      gap: 0.5em;
+    }
+  }
+}

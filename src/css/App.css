@@ -1,0 +1,17 @@
+.app-container {
+  background-color: rgb(21, 21, 21);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 80vw;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 2em;
+  border-radius: 20px;
+  gap: 1em;
+}
+.app-container .step-two-three-wrapper {
+  display: flex;
+  width: 100%;
+  gap: 2em;
+}/*# sourceMappingURL=App.css.map */

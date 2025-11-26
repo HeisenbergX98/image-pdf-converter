@@ -1,0 +1,27 @@
+@use "variables" as *;
+
+.numberimages-container {
+  background-color: rgba(59, 59, 59, 0.192);
+  display: flex;
+  padding: $padding-main;
+  width: 30%;
+  height: 27%;
+  flex-direction: column;
+  align-items: flex-start;
+  align-self: flex-start;
+  border-radius: $border-radius-20;
+  gap: 1em;
+
+  .numberimages-title {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+  }
+
+  .numberimages-result {
+    background-color: rgba(144, 166, 45, 0.601);
+    border-radius: $border-radius-10;
+    padding: 0.5em;
+    border: 1px solid rgba(190, 218, 63, 0.857);
+  }
+}

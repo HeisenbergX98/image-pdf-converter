@@ -1,0 +1,16 @@
+.imageinput-container {
+  background-color: rgba(0, 136, 255, 0.192);
+  display: flex;
+  padding: 2em;
+  width: 60%;
+  height: 27%;
+  flex-direction: column;
+  align-items: flex-start;
+  border-radius: 20px;
+  border: 3px dashed rgba(0, 136, 255, 0.438);
+  gap: 0.5em;
+}
+.imageinput-container .imageinput-title {
+  display: flex;
+  gap: 0.5em;
+}/*# sourceMappingURL=imageinput.css.map */

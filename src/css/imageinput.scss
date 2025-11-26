@@ -1,0 +1,19 @@
+@use "variables" as *;
+
+.imageinput-container {
+  background-color: rgba(0, 136, 255, 0.192);
+  display: flex;
+  padding: $padding-main;
+  width: 60%;
+  height: 27%;
+  flex-direction: column;
+  align-items: flex-start;
+  border-radius: $border-radius-20;
+  border: 3px dashed rgba(0, 136, 255, 0.438);
+  gap: 0.5em;
+
+  .imageinput-title {
+    display: flex;
+    gap: 0.5em;
+  }
+}
