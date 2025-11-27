@@ -13,6 +13,7 @@
 }
 .imageinput-container .imageinput-title {
   display: flex;
+  align-items: center;
   gap: 0.5em;
 }
 .imageinput-container .dragging-text {
