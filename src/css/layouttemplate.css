@@ -1,5 +1,5 @@
 .layouttemplate-container {
-  background-color: rgba(59, 59, 59, 0.192);
+  background-color: #232120;
   display: flex;
   padding: 2em;
   width: 30%;
@@ -8,6 +8,7 @@
   align-items: flex-start;
   align-self: flex-start;
   border-radius: 20px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3490196078), 0px 12px 12px rgba(0, 0, 0, 0.1568627451);
 }
 .layouttemplate-container .layouttemplate-title {
   display: flex;
@@ -21,11 +22,12 @@
 .layouttemplate-container .layouttemplate-options-wrapper .layouttemplate-options {
   display: flex;
   cursor: pointer;
-  background-color: rgba(44, 44, 44, 0.509);
+  background-color: #312f2d;
   gap: 1em;
   border-radius: 10px;
   transition: filter 0.2s ease;
   padding: 0.2em;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3490196078), 0px 12px 12px rgba(0, 0, 0, 0.1568627451);
 }
 .layouttemplate-container .layouttemplate-options-wrapper .layouttemplate-options:hover {
   filter: brightness(1.3);

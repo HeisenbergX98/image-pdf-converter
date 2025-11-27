@@ -1,7 +1,7 @@
 @use "variables" as *;
 
 .layouttemplate-container {
-  background-color: rgba(59, 59, 59, 0.192);
+  background-color: $bg-box-dark;
   display: flex;
   padding: $padding-main;
   width: 30%;
@@ -10,6 +10,7 @@
   align-items: flex-start;
   align-self: flex-start;
   border-radius: $border-radius-20;
+  box-shadow: $box-shadow-combined;
 
   .layouttemplate-title {
     display: flex;
@@ -24,11 +25,12 @@
     .layouttemplate-options {
       display: flex;
       cursor: pointer;
-      background-color: rgba(44, 44, 44, 0.509);
+      background-color: $bg-layout-dark;
       gap: 1em;
       border-radius: $border-radius-10;
       transition: filter $transition;
       padding: 0.2em;
+      box-shadow: $box-shadow-combined;
 
       &:hover {
         filter: $filter-hover;

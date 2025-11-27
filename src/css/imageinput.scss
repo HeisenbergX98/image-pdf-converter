@@ -1,7 +1,7 @@
 @use "variables" as *;
 
 .imageinput-container {
-  background-color: rgba(0, 136, 255, 0.192);
+  background-color: $bg-alt;
   display: flex;
   padding: $padding-main;
   width: 60%;
@@ -9,8 +9,9 @@
   flex-direction: column;
   align-items: flex-start;
   border-radius: $border-radius-20;
-  border: 3px dashed rgba(0, 136, 255, 0.438);
+  border: 3px dashed $bg-alt-dark; 
   gap: 0.5em;
+  box-shadow: $box-shadow-combined;
 
   .imageinput-title {
     display: flex;
