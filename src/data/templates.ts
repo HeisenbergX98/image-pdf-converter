@@ -1,21 +1,42 @@
 // Configuration constants
 const A4_WIDTH = 210;
 const A4_HEIGHT = 297;
-const PAGE_MARGIN = 10; // Margin from page edge to first image/grid (mm)
-const GUTTER = 5; // Spacing between images (mm)
+export const PAGE_MARGIN = 10; // Margin from page edge to first image/grid (mm)
+export const GUTTER = 5; // Spacing between images (mm)
 
-const PRINTABLE_WIDTH = A4_WIDTH - 2 * PAGE_MARGIN;
-const PRINTABLE_HEIGHT = A4_HEIGHT;
+export const PRINTABLE_WIDTH = A4_WIDTH - 2 * PAGE_MARGIN;
+export const PRINTABLE_HEIGHT = A4_HEIGHT - 2 * PAGE_MARGIN;
 
-export const TEMPLATES = [
+// --- EXPORTED TYPES ---
+
+export interface TemplateDimensions {
+  w: number;
+  h: number;
+  rows: number;
+  cols: number;
+}
+
+export interface Template {
+  key: number;
+  name: string;
+  id: "3x4" | "half" | "full" | "2x2";
+  description: string;
+  imagesPerPage: number;
+  getDimensions: (pw: number, ph: number) => TemplateDimensions;
+}
+
+export type TemplateId = Template["id"];
+
+// --- EXPORTED TEMPLATES ARRAY ---
+
+export const TEMPLATES: Template[] = [
   {
     key: 1,
     name: "Página Inteira",
     id: "full",
     description: "Uma imagem cobrindo a página inteira.",
-    // Full page layouts don't use internal gutters, just the page margin
     imagesPerPage: 1,
-    getDimensions: (pw: number, ph: number) => ({
+    getDimensions: (pw, ph) => ({
       w: pw,
       h: ph,
       rows: 1,
@@ -28,7 +49,7 @@ export const TEMPLATES = [
     id: "half",
     description: "Duas imagens posicionadas verticalmente em uma página.",
     imagesPerPage: 2,
-    getDimensions: (pw: number, ph: number) => {
+    getDimensions: (pw, ph) => {
       // Two rows, one column. Total vertical space is ph - 1*GUTTER
       const h_total = ph - GUTTER;
       return { w: pw, h: h_total / 2, rows: 2, cols: 1 };
@@ -49,7 +70,7 @@ export const TEMPLATES = [
       const rows = Math.floor((PRINTABLE_HEIGHT + GUTTER) / (targetH + GUTTER));
       return cols * rows;
     })(),
-    getDimensions: (pw: number, ph: number) => {
+    getDimensions: (pw, ph) => {
       const targetW = 30; // 30mm
       const targetH = 40; // 40mm
       // Use the max fitted columns/rows for positioning (calculated above)
@@ -66,7 +87,7 @@ export const TEMPLATES = [
     id: "2x2",
     description: "Quatro imagens em uma grade 2 x 2.",
     imagesPerPage: 4,
-    getDimensions: (pw: number, ph: number) => {
+    getDimensions: (pw, ph) => {
       // 2 cols, 2 rows. Total space W = pw - 1*GUTTER. Total space H = ph - 1*GUTTER
       const w_total = pw - GUTTER;
       const h_total = ph - GUTTER;

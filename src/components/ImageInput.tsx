@@ -1,6 +1,22 @@
+import type { ChangeEvent } from "react";
 import "../css/imageinput.css";
 
-const ImageInput = () => {
+interface ImageInputProps {
+  onFileSelect: (file: File | null) => void;
+  fileName: string | null;
+}
+
+const ImageInput: React.FC<ImageInputProps> = ({ onFileSelect, fileName }) => {
+  const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+
+    if (file && (file.type === "image/jpeg" || file.type === "image/png")) {
+      onFileSelect(file);
+    } else {
+      onFileSelect(null);
+    }
+  };
+
   return (
     <div className="imageinput-container">
       <div className="imageinput-title">
@@ -17,11 +33,21 @@ const ImageInput = () => {
         <h3>Carregue a imagem (JPG/PNG)</h3>
       </div>
       <div>
-        <input type="file" accept=".jpg, .jpeg, .png" />
+        <input
+          type="file"
+          accept=".jpg, .jpeg, .png"
+          onChange={handleFileChange}
+        />
       </div>
-      <div>
-        <p>FILE UPLOADED</p>
-      </div>
+      {fileName && (
+        <div>
+          <p>
+            {" "}
+            <b> Arquivo selecionado: </b>
+            {fileName}
+          </p>
+        </div>
+      )}
     </div>
   );
 };
