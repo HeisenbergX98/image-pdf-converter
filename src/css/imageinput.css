@@ -14,4 +14,13 @@
 .imageinput-container .imageinput-title {
   display: flex;
   gap: 0.5em;
+}
+.imageinput-container .dragging-text {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.is-dragging {
+  filter: brightness(0.6) !important;
 }/*# sourceMappingURL=imageinput.css.map */

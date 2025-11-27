@@ -1,4 +1,4 @@
-import { type ChangeEvent } from "react";
+import { useState, type ChangeEvent } from "react";
 import "../css/imageinput.css";
 
 interface ImageInputProps {
@@ -7,18 +7,46 @@ interface ImageInputProps {
 }
 
 const ImageInput: React.FC<ImageInputProps> = ({ onFileSelect, fileName }) => {
-  const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
+  const [isDragging, setIsDragging] = useState(false);
 
+  const processFile = (file: File | undefined) => {
     if (file && (file.type === "image/jpeg" || file.type === "image/png")) {
       onFileSelect(file);
     } else {
+      console.warn("Invalid file type. Please upload JPG or PNG.");
       onFileSelect(null);
     }
   };
 
+  const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    processFile(file);
+  };
+
+  const handleDragOver = (e: React.DragEvent<HTMLElement>) => {
+    e.preventDefault();
+    setIsDragging(true);
+  };
+
+  const handleDragLeave = (e: React.DragEvent<HTMLElement>) => {
+    e.preventDefault();
+    setIsDragging(false);
+  };
+
+  const handleDrop = (e: React.DragEvent<HTMLElement>) => {
+    e.preventDefault();
+    setIsDragging(false);
+    const file = e.dataTransfer.files?.[0];
+    processFile(file);
+  };
+
   return (
-    <div className="imageinput-container">
+    <div
+      className={`imageinput-container ${isDragging ? "is-dragging" : ""}`}
+      onDragOver={handleDragOver}
+      onDragLeave={handleDragLeave}
+      onDrop={handleDrop}
+    >
       <div className="imageinput-title">
         <h3>1.</h3>
         <svg
@@ -47,6 +75,13 @@ const ImageInput: React.FC<ImageInputProps> = ({ onFileSelect, fileName }) => {
             {fileName}
           </p>
         </div>
+      )}
+      {isDragging ? (
+        <div className="dragging-text">
+          <h1>PODE SOLTAR</h1>
+        </div>
+      ) : (
+        ""
       )}
     </div>
   );
