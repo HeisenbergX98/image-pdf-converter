@@ -34,7 +34,8 @@ const LayoutTemplate: React.FC<LayoutTemplateProps> = ({
               <div>
                 <h4>{t.name}</h4>
                 <p>
-                  Cabe até {actualImagesPerPage} imagens por página.{" "}
+                  Cabe até {actualImagesPerPage}{" "}
+                  {actualImagesPerPage > 1 ? "imagens" : "imagem"} por página.{" "}
                   {t.description}
                 </p>
               </div>

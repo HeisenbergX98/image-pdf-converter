@@ -1,14 +1,16 @@
 .app-container {
-  background-color: rgb(21, 21, 21);
+  background-color: #292725;
   display: flex;
   align-items: center;
   flex-direction: column;
-  width: 80vw;
+  width: 90vw;
   height: -moz-fit-content;
   height: fit-content;
   padding: 2em;
   border-radius: 20px;
   gap: 1em;
+  margin: 1em 0;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3490196078), 0px 12px 12px rgba(0, 0, 0, 0.1568627451);
 }
 .app-container .step-two-three-wrapper {
   display: flex;

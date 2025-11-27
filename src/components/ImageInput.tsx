@@ -1,4 +1,4 @@
-import type { ChangeEvent } from "react";
+import { type ChangeEvent } from "react";
 import "../css/imageinput.css";
 
 interface ImageInputProps {

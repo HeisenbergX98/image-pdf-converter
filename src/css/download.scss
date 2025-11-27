@@ -1,7 +1,7 @@
 @use "variables" as *;
 
 .download-container {
-  background-color: rgba(59, 59, 59, 0.192);
+  background-color: $bg-box-dark;
   display: flex;
   padding: $padding-main;
   width: 30%;
@@ -11,6 +11,7 @@
   align-self: flex-start;
   border-radius: $border-radius-20;
   gap: 1em;
+  box-shadow: $box-shadow-combined;
 
   .download-button {
     width: 100%;

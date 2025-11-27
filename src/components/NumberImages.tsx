@@ -39,10 +39,12 @@ const NumberImages: React.FC<NumberImagesProps> = ({
       </div>
       <div className="numberimages-result">
         <p>
-          <i>RESULTADO:</i> No modelo selecionado caberá{" "}
-          <b>{imagesPerPageCapacity}</b> imagem(s) por página. Isso irá gerar um
-          arquivo PDF com <b>{totalImagesCount}</b> imagem(s) em{" "}
-          <b>{requiredPages}</b> página(s).
+          <b>RESULTADO:</b> No modelo selecionado caberá{" "}
+          <b>{imagesPerPageCapacity}</b>{" "}
+          {imagesPerPageCapacity > 1 ? "imagens" : "imagem"} por página. Isso
+          irá gerar um arquivo PDF com <b>{totalImagesCount}</b>{" "}
+          {totalImagesCount > 1 ? "imagens" : "imagem"} em{" "}
+          <b>{requiredPages}</b> {requiredPages > 1 ? "páginas" : "página"}.
         </p>
       </div>
     </div>

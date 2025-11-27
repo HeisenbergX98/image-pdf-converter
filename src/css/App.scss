@@ -1,14 +1,16 @@
 @use "variables" as *;
 .app-container {
-  background-color: rgb(21, 21, 21);
+  background-color: $bg-dark;
   display: flex;
   align-items: center;
   flex-direction: column;
-  width: 80vw;
+  width: 90vw;
   height: fit-content;
   padding: $padding-main;
   border-radius: $border-radius-20;
   gap: 1em;
+  margin: 1em 0;
+  box-shadow: $box-shadow-combined;
 
   .step-two-three-wrapper {
     display: flex;
