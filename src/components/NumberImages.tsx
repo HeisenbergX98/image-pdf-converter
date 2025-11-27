@@ -1,6 +1,22 @@
 import "../css/numberimages.css";
 
-const NumberImages = () => {
+interface NumberImagesProps {
+  totalImagesCount: number;
+  setTotalImagesCount: (count: number) => void;
+  imagesPerPageCapacity: number;
+  requiredPages: number;
+}
+
+const NumberImages: React.FC<NumberImagesProps> = ({
+  totalImagesCount,
+  setTotalImagesCount,
+  imagesPerPageCapacity,
+  requiredPages,
+}) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const val = parseInt(e.target.value);
+    setTotalImagesCount(Math.max(1, isNaN(val) ? 1 : val));
+  };
   return (
     <div className="numberimages-container">
       <div className="numberimages-title">
@@ -12,13 +28,21 @@ const NumberImages = () => {
       </div>
       <div className="numberimages-input">
         <label htmlFor="totalImagesCount">Quatidade de Imagens:</label>
-        <input id="totalImagesCount" type="number" />
+        <input
+          id="totalImagesCount"
+          type="number"
+          value={totalImagesCount}
+          min={1}
+          max={1000}
+          onChange={handleChange}
+        />
       </div>
       <div className="numberimages-result">
         <p>
-          <i>RESULTADO:</i> O modelo <b>MODELO</b> cabe <b>IMAGEM</b> por
-          página. Isso irá gerar <b>QUANTIDADE DE IMAGENS</b> em{" "}
-          <b>QUANTIDADE DE PAGINAS</b>.
+          <i>RESULTADO:</i> No modelo selecionado caberá{" "}
+          <b>{imagesPerPageCapacity}</b> imagem(s) por página. Isso irá gerar um
+          arquivo PDF com <b>{totalImagesCount}</b> imagem(s) em{" "}
+          <b>{requiredPages}</b> página(s).
         </p>
       </div>
     </div>
