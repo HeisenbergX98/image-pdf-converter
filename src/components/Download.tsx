@@ -120,7 +120,7 @@ const Download: React.FC<DownloadProps> = ({
     } catch (error) {
       console.error(error);
       setStatusType("error");
-      setMessage("Ocorreu um error enquanto gerava o PDF.");
+      setMessage("Ocorreu um erro enquanto gerava o PDF.");
     }
   };
   return (
@@ -143,7 +143,7 @@ const Download: React.FC<DownloadProps> = ({
         </button>
       </div>
       <div className="download-message">
-        <p>RESULTADO</p>
+        <p>{status.message}</p>
       </div>
     </div>
   );

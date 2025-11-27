@@ -68,4 +68,18 @@ input[type=number]:hover {
 }
 input[type=number]:focus {
   outline: 1px solid rgba(250, 128, 114, 0.23);
+}
+
+input[type=file]::file-selector-button {
+  background-color: #e46d6d;
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.2s ease;
+}
+input[type=file]::file-selector-button:hover {
+  background-color: #ef5b2d;
 }/*# sourceMappingURL=index.css.map */

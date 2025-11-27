@@ -50,9 +50,7 @@ function App() {
       <ImageInput
         onFileSelect={(file) => {
           setImageFile(file);
-          setMessage(
-            file ? `Image loaded: ${file.name}` : "Invalid file selected."
-          );
+          setMessage(file ? `Arquivo já foi selecionado` : "Arquivo Inválido");
           setStatusType(file ? "idle" : "error");
         }}
         fileName={imageFile ? imageFile.name : null}

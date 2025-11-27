@@ -16,6 +16,11 @@
   flex-direction: column;
   gap: 0.5em;
 }
+.numberimages-container .numberimages-input {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
 .numberimages-container .numberimages-result {
   background-color: rgba(144, 166, 45, 0.601);
   border-radius: 10px;
